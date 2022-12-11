@@ -50,11 +50,54 @@ Signup(or Singin) and request to issue an authentication key
   
 2. Search OPEN API and check how to use it
 
-Reference: [Development Specification Document](https://ecos.bok.or.kr/api/#/DevGuide/DevSpeciflcation)
+Reference: [Development Specification Document](https://ecos.bok.or.kr/api/#/DevGuide/DevSpeciflcation) and [Statistical Code Search](https://ecos.bok.or.kr/api/#/DevGuide/StatisticalCodeSearch)
 
-  상세주소https://ecos.bok.or.kr/api   (https와 http 모두 사용 가능합니다.)
 ```
 (Sample Example)
 https://ecos.bok.or.kr/api/StatisticSearch/sample/xml/kr/1/10/200Y001/A/2015/2021/10101/?/?/?
 ```
+|제목|내용|설명|
+|:---|---:|:---:|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
 
+## Open Colab and typing scripts to scrap Open API data
+1. Import library
+```
+import requests
+import pandas as pd
+from datetime import date
+```
+
+2. Request and get data from URL
+```
+url = f'https://ecos.bok.or.kr/api/StatisticSearch/{key}/json/kr/1/1000/200Y006/Q/2020Q1/2022Q3/1400'
+r = requests.get(url)
+```
+
+3. Parsing url data to [JSON](https://en.wikipedia.org/wiki/JSON, "Json wiki link") format and coverting json to pandas dataframe format
+```
+jo = r.json()
+df = pd.DataFrame(jo['StatisticSearch']['row']) # Convert json data to dataframe
+df = df[['TIME', 'DATA_VALUE']] # Select only the desired columns
+```
+
+4. Rename column and convert data type
+```
+df.rename(columns = {'TIME' : 'STD_YM'}, inplace = True)
+df['DATA_VALUE'] = pd.to_numeric(df['DATA_VALUE'])
+df['STD_YM'] = df['STD_YM'].str.replace('Q1$', '03', regex=True)
+df['STD_YM'] = df['STD_YM'].str.replace('Q2$', '06', regex=True)
+df['STD_YM'] = df['STD_YM'].str.replace('Q3$', '09', regex=True)
+df['STD_YM'] = df['STD_YM'].str.replace('Q4$', '12', regex=True)
+```
+
+5. Set Index and export excel file
+```
+df = df.set_index('STD_YM')
+today = date.today()
+df.to_excel(f'{today}_EcosExample.xlsx')
+```
+
+Refer to the uploaded file for more additional information :-)
