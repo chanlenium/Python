@@ -31,3 +31,9 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
 
 ## Let's dive in [Colab](https://colab.research.google.com/?hl=ko, "Colab link")!!
 [<img src="https://mcgrawect.princeton.edu/wp-content/uploads/2020/10/colab_lg.png" width="600">](https://colab.research.google.com/)
+
+
+
+# Getting Started Data scraping using Python Colab
+## Scraping [ECOS Open API](https://ecos.bok.or.kr/api/) data and making excel file
+
