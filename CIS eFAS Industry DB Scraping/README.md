@@ -35,5 +35,18 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
 
 
 # Getting Started Data scraping using Python Colab
-## Scraping [ECOS Open API](https://ecos.bok.or.kr/api/) data and making excel file
+## (Goal) Scraping [ECOS Open API](https://ecos.bok.or.kr/api/) data and making excel file
+
+<ol type="1">
+  <li><b>Get an authentication key for ECOS Open API service</b></li>
+  Signup(or Singin) and request to issue an authentication key<br>
+  <img src="https://wikidocs.net/images/page/144514/kor02.png" width="600">
+  <br>
+  <li><b>Search OPEN API and check how to use it</b></li>
+  Python does not specify the datatype of a variable, but can specify a value simply by declaring it.<br> 
+  The data type of the variable is determined when the code is executed.<br>
+  <br>
+  <li><b>General-purpose programming language</b></li>
+  A general-purpose programming language (GPL) is a programming language designed to be used for building software in a wide variety of application domains, across a multitude of hardware configurations and operating systems. 
+</ol>
 
