@@ -37,16 +37,24 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
 # Getting Started Data scraping using Python Colab
 ## (Goal) Scraping [ECOS Open API](https://ecos.bok.or.kr/api/) data and making excel file
 
-<ol type="1">
-  <li><b>Get an authentication key for ECOS Open API service</b></li>
-  Signup(or Singin) and request to issue an authentication key<br>
+|제목|내용|설명|
+|:---|---:|:---:|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
+
+1. Get an authentication key for ECOS Open API service
+
+Signup(or Singin) and request to issue an authentication key
   <img src="https://wikidocs.net/images/page/144514/kor02.png" width="600">
-  <br>
-  <li><b>Search OPEN API and check how to use it</b></li>
-  Python does not specify the datatype of a variable, but can specify a value simply by declaring it.<br> 
-  The data type of the variable is determined when the code is executed.<br>
-  <br>
-  <li><b>General-purpose programming language</b></li>
-  A general-purpose programming language (GPL) is a programming language designed to be used for building software in a wide variety of application domains, across a multitude of hardware configurations and operating systems. 
-</ol>
+  
+2. Search OPEN API and check how to use it
+
+Reference: [Development Specification Document](https://ecos.bok.or.kr/api/#/DevGuide/DevSpeciflcation)
+
+  상세주소https://ecos.bok.or.kr/api   (https와 http 모두 사용 가능합니다.)
+```
+(Sample Example)
+https://ecos.bok.or.kr/api/StatisticSearch/sample/xml/kr/1/10/200Y001/A/2015/2021/10101/?/?/?
+```
 
