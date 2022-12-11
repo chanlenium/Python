@@ -29,7 +29,5 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
 * No need to install a developing configuration
 * Use virtual CPU/Memory for free
 
-[<img src="https://miro.medium.com/max/986/1*pimj8lXWwZnqLs2xVCV2Aw.png" width="600">](https://colab.research.google.com/)
-
-
 ## Let's dive in [Colab](https://colab.research.google.com/?hl=ko, "Colab link")!!
+[<img src="https://mcgrawect.princeton.edu/wp-content/uploads/2020/10/colab_lg.png" width="600">](https://colab.research.google.com/)
