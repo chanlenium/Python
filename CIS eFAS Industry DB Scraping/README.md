@@ -6,8 +6,6 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
 ## What is [Python](https://en.wikipedia.org/wiki/Python_(programming_language), "python wiki link") language?
 [![Python](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/729px-Python_logo_and_wordmark.svg.png)](https://www.python.org/)
 
-
-
 ### Programming language developed with intuitive and concise grammar, gaining the most popularity 
 (Reference: [tiobe-index](https://www.tiobe.com/tiobe-index/, "tiobe-index link"))
 ### Special features of Python
@@ -24,3 +22,14 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
   <li><b>General-purpose programming language</b></li>
   A general-purpose programming language (GPL) is a programming language designed to be used for building software in a wide variety of application domains, across a multitude of hardware configurations and operating systems. 
 </ol>
+
+
+## Python editor [Colab](https://colab.research.google.com/?hl=ko, "Colab link") (Colaboratory)
+* Can make python script and excute it in browser immediately
+* No need to install a developing configuration
+* Use virtual CPU/Memory for free
+
+[<img src="https://miro.medium.com/max/986/1*pimj8lXWwZnqLs2xVCV2Aw.png" width="600">](https://colab.research.google.com/)
+
+
+## Let's dive in [Colab](https://colab.research.google.com/?hl=ko, "Colab link")!!
