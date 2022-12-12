@@ -37,11 +37,30 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
 # Getting Started Data scraping using Python Colab
 ## (Goal) Scraping [ECOS Open API](https://ecos.bok.or.kr/api/) data and making excel file
 
-|제목|내용|설명|
-|:---|---:|:---:|
-|왼쪽정렬|오른쪽정렬|중앙정렬|
-|왼쪽정렬|오른쪽정렬|중앙정렬|
-|왼쪽정렬|오른쪽정렬|중앙정렬|
+|No|컬럼ID|컬럼명|PK|
+|:--:|:---|:---|:--:|
+|1|STD_YM|기준년월|Y|
+|2|GDP_WON_SIL|GDP(원계열, 실질)|N|
+|3|GDP_WON_MYUNG|GDP(원계열, 명목)|N|
+|4|GDP_GAE_SIL|GDP(계절조정, 실질)|N|
+|5|GDP_GAE_MYUNG|GDP(계절조정, 명목)|N|
+|6|INDU_GDP_WON|GDP 성장률(원계열, 실질) - 전년동기비|N|
+|7|INDU_GDP_GAE|GDP 성장률(계절조정, 실질) - 전기비|N|
+|8|INDU_OPERATING_WON|전산업생산지수_농림어업제외(원계열)|N|
+|9|INDU_OPERATING_GAE|전산업생산지수_농림어업제외(계절조정)|N|
+|10|INDU_MANU_OPER_WON|제조업 생산지수(원계열)|N|
+|11|INDU_MANU_OPER_GAE|제조업 생산지수(계절조정)|N|
+|12|INDU_SERV_OPER_GYUNG|서비스업 생산지수(경상지수)|N|
+|13|INDU_SERV_OPER_BUL|서비스업 생산지수(불변지수)|N|
+|14|INDU_SERV_OPER_GAE|서비스업 생산지수(계절조정지수)|N|
+|15|INDU_CONSALE_GYUNG|소매업태별 판매액지수(경상지수)|N|
+|16|INDU_CONSALE_BUL|소매업태별 판매액지수(불변지수)|N|
+|17|INDU_CONSALE_GAE|소매업태별 판매액지수(계절조정지수)|N|
+|18|EXCHANGE_WON_DOL|원달러 환율|N|
+|19|INTERATE_RATE_KORIBOR3|시장금리 (KORIBOR 3개월)|N|
+|20|MANU_PRICE|물가 - 생산자 물가지수(에너지, 식료품 제외)|N|
+|21|OIL_PRICE_DUBAI|유가(Dubai)|N|
+
 
 1. Get an authentication key for ECOS Open API service
 
