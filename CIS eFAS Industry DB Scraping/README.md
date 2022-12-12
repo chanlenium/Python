@@ -208,12 +208,6 @@ INDU_MANU_OPER_WON.rename(columns = {'DATA_VALUE':'INDU_MANU_OPER_WON'}, inplace
 ### Scraping more than two data columns and merging them (Loop)
 1. Scrap multiple data columns using helper function
 ```
-import requests
-import pandas as pd
-from datetime import date
-
-key = 'MTSA07N58C5X8EB4LMJL'
-
 def ecosApiCall(url_tail):
   url = f'https://ecos.bok.or.kr/api/StatisticSearch/{key}/json/kr/1/1000/{url_tail}'
   r = requests.get(url)
