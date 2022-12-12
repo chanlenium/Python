@@ -140,10 +140,14 @@ today = date.today()
 df.to_excel(f'{today}_EcosExample.xlsx')
 ```
 
-### Scraping two data columns and merging them (Join columns)
+### Scraping two data columns and merging them (Define helper function and Join columns)
+1. Raw coding for scaping two data columns
 
+2. Bind common parts(URL call process) and Make helper function
 
+3. Merge columns
+ 
 ### Scraping more than two data columns and merging them (Loop)
-
+1. Raw coding for scaping two data columns
 
 Refer to the uploaded file for more additional information :-)
