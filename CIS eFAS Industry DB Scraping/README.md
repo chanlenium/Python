@@ -100,6 +100,9 @@ https://ecos.bok.or.kr/api/StatisticSearch/sample/xml/kr/1/10/200Y001/A/2015/202
 |21|OIL_PRICE_DUBAI|유가(Dubai)|N|9.1.6.3. 국제상품가격 : [902Y003][M]   /   Dubai(현물) : [4010102][U$/bbl]|
 
 ## Open Colab and typing scripts to scrap Open API data
+
+### Scraping a single data column
+
 1. Import library
 ```
 import requests
@@ -136,5 +139,11 @@ df = df.set_index('STD_YM')
 today = date.today()
 df.to_excel(f'{today}_EcosExample.xlsx')
 ```
+
+### Scraping two data columns and merging them (Join columns)
+
+
+### Scraping more than two data columns and merging them (Loop)
+
 
 Refer to the uploaded file for more additional information :-)
