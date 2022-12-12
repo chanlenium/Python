@@ -62,12 +62,13 @@ Industry DB for the KCIS Enterpirse Finance Analytics System
 |21|OIL_PRICE_DUBAI|유가(Dubai)|N|
 
 
-1. Get an authentication key for ECOS Open API service
+**Step 1. Get an authentication key for ECOS Open API service**
 
-Signup(or Singin) and request to issue an authentication key
-  <img src="https://wikidocs.net/images/page/144514/kor02.png" width="600">
+Sign up(or Sing in) and request to issue an authentication key
+
+<img src="https://wikidocs.net/images/page/144514/kor02.png" width="600">
   
-2. Search OPEN API and check how to use it
+**Step 2. Search OPEN API and check how to use it**
 
 Reference: [Development Specification Document](https://ecos.bok.or.kr/api/#/DevGuide/DevSpeciflcation) and [Statistical Code Search](https://ecos.bok.or.kr/api/#/DevGuide/StatisticalCodeSearch)
 
@@ -103,27 +104,27 @@ https://ecos.bok.or.kr/api/StatisticSearch/sample/xml/kr/1/10/200Y001/A/2015/202
 
 ### Scraping a single data column
 
-1. Import library
+**Step 1. Import library**
 ```
 import requests
 import pandas as pd
 from datetime import date
 ```
 
-2. Request and get data from URL
+**Step 2. Request and get data from URL**
 ```
 url = f'https://ecos.bok.or.kr/api/StatisticSearch/{key}/json/kr/1/1000/200Y006/Q/2020Q1/2022Q3/1400'
 r = requests.get(url)
 ```
 
-3. Parsing url data to [JSON](https://en.wikipedia.org/wiki/JSON, "Json wiki link") format and coverting json to pandas dataframe format
+**Step 3. Parsing url data to [JSON](https://en.wikipedia.org/wiki/JSON, "Json wiki link") format and coverting json to pandas dataframe format**
 ```
 jo = r.json()
 df = pd.DataFrame(jo['StatisticSearch']['row']) # Convert json data to dataframe
 df = df[['TIME', 'DATA_VALUE']] # Select only the desired columns
 ```
 
-4. Rename column and convert data type
+**Step 4. Rename column and convert data type**
 ```
 df.rename(columns = {'TIME' : 'STD_YM'}, inplace = True)
 df['DATA_VALUE'] = pd.to_numeric(df['DATA_VALUE'])
@@ -133,7 +134,7 @@ df['STD_YM'] = df['STD_YM'].str.replace('Q3$', '09', regex=True)
 df['STD_YM'] = df['STD_YM'].str.replace('Q4$', '12', regex=True)
 ```
 
-5. Set Index and export excel file
+**Step 5. Set Index and export excel file**
 ```
 df = df.set_index('STD_YM')
 today = date.today()
@@ -141,7 +142,7 @@ df.to_excel(f'{today}_EcosExample.xlsx')
 ```
 
 ### Scraping two data columns and merging them (Define helper function and Join columns)
-1. Raw coding for scaping two data columns
+**Step 1. Raw coding for scaping two data columns**
 ```
 ## GDP(원계열, 실질)
 url = f'https://ecos.bok.or.kr/api/StatisticSearch/{key}/json/kr/1/1000/200Y006/Q/2010Q1/2022Q3/1400'
@@ -170,7 +171,7 @@ INDU_MANU_OPER_WON['DATA_VALUE'] = pd.to_numeric(INDU_MANU_OPER_WON['DATA_VALUE'
 INDU_MANU_OPER_WON = INDU_MANU_OPER_WON.set_index('STD_YM')
 ```
 
-2. Bind common parts(URL call process) and Make helper function
+**Step 2. Bind common parts(URL call process) and Make helper function**
 ```
 def ecosApiCall(url_tail):
   url = f'https://ecos.bok.or.kr/api/StatisticSearch/{key}/json/kr/1/1000/{url_tail}'
@@ -200,13 +201,13 @@ INDU_MANU_OPER_WON = ecosApiCall(f"901Y032/M/201001/{queryYYYYMM}/I11AC/1")
 INDU_MANU_OPER_WON.rename(columns = {'DATA_VALUE':'INDU_MANU_OPER_WON'}, inplace = True)
 ```
 
-3. Merge columns
+**Step 3. Merge columns**
  ```
  Merged_TB = pd.merge(left = GDP_WON_SIL, right = INDU_MANU_OPER_WON, left_index = True, right_index = True, how = "outer")
  ```
  
 ### Scraping more than two data columns and merging them (Loop)
-1. Scrap multiple data columns using helper function
+**Step 1. Scrap multiple data columns using helper function**
 ```
 def ecosApiCall(url_tail):
   url = f'https://ecos.bok.or.kr/api/StatisticSearch/{key}/json/kr/1/1000/{url_tail}'
@@ -344,7 +345,7 @@ OIL_PRICE_DUBAI = ecosApiCall(f"902Y003/M/201001/{queryYYYYMM}/4010102")
 OIL_PRICE_DUBAI.rename(columns = {'DATA_VALUE':'OIL_PRICE_DUBAI'}, inplace = True)
 ```
 
-3. Merge columns using `For-loop` and export `.xlxs` file
+**<font color='red'>Step 2</font>. Merge columns using `For-loop` and export `.xlxs` file**
 ```
 # compile the list of dataframes you want to merge such as [GDP_WON, GDP_GAE, OIL_PRICE_DUBAI ... ]
 df_list = [GDP_WON_SIL, GDP_WON_MYUNG, GDP_GAE_SIL, GDP_GAE_MYUNG, INDU_GDP_WON, INDU_GDP_GAE, INDU_OPERATING_WON, INDU_OPERATING_GAE, INDU_MANU_OPER_WON, INDU_MANU_OPER_GAE, INDU_SERV_OPER_GYUNG, INDU_SERV_OPER_BUL, INDU_SERV_OPER_GAE, INDU_SERV_OPER_GYUNG, INDU_SERV_OPER_BUL, INDU_SERV_OPER_GAE, EXCHANGE_WON_DOL, INTERATE_RATE_KORIBOR3, MANU_PRICE, OIL_PRICE_DUBAI]
