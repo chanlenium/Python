@@ -345,7 +345,7 @@ OIL_PRICE_DUBAI = ecosApiCall(f"902Y003/M/201001/{queryYYYYMM}/4010102")
 OIL_PRICE_DUBAI.rename(columns = {'DATA_VALUE':'OIL_PRICE_DUBAI'}, inplace = True)
 ```
 
-**<font color='red'>Step 2</font>. Merge columns using `For-loop` and export `.xlxs` file**
+<font color='red' style='bold'>Step 2.</font> **Merge columns using `For-loop` and export `.xlxs` file**
 ```
 # compile the list of dataframes you want to merge such as [GDP_WON, GDP_GAE, OIL_PRICE_DUBAI ... ]
 df_list = [GDP_WON_SIL, GDP_WON_MYUNG, GDP_GAE_SIL, GDP_GAE_MYUNG, INDU_GDP_WON, INDU_GDP_GAE, INDU_OPERATING_WON, INDU_OPERATING_GAE, INDU_MANU_OPER_WON, INDU_MANU_OPER_GAE, INDU_SERV_OPER_GYUNG, INDU_SERV_OPER_BUL, INDU_SERV_OPER_GAE, INDU_SERV_OPER_GYUNG, INDU_SERV_OPER_BUL, INDU_SERV_OPER_GAE, EXCHANGE_WON_DOL, INTERATE_RATE_KORIBOR3, MANU_PRICE, OIL_PRICE_DUBAI]
@@ -360,4 +360,4 @@ today = date.today()
 IT_EFAS_MACRO_ECON_DB.to_excel(f'{today}_IT_EFAS_MACRO_ECON_DB.xlsx')
 ```
 
-Refer to the uploaded file for more additional information :-)
+Refer to the uploaded file for more additional information.
