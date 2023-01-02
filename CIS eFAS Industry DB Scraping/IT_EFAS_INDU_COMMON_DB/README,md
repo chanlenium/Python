@@ -1,0 +1,4 @@
+|No|Coulum ID|Column Name|PK|Reference|
+|:--:|:---|:---|:--:|:--|
+|1|STD_YM|기준년월|Y||
+|2|EFAS_CD|EFAS업종구분코드|Y|66개 산업 분류|
