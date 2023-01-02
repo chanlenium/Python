@@ -1,4 +1,3 @@
 |No|Coulum ID|Column Name|PK|Reference|
 |:--:|:---|:---|:--:|:--|
-|1|STD_YM|기준년월|Y||
-|2|GBN|구분자|Y|1:월별, 2:분기별|
+|1|STD_YM|기준년월|Y|a|
