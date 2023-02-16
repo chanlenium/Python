@@ -33,7 +33,7 @@
 |31|CONST_DOME_ORDER_QUAN|국내 건설 수주량||건설 ECOS(8.4.1. 국내건설수주액:[901Y020][M] / 총수주액[I42A][백만 원])|
 |32|CONST_REAL_PRICE|국내 건설 기성액||건설 ECOS(8.4.2. 건설기성액:[901Y104][M] / 총기성액[I48A][백만 원]) / 경상[I37A]|
 |33|CONST_OVERSEA_ORDER_QUAN|해외 건설 수주량||건설 (출처: KOSIS)|
-|34|CONST_BREAK_STATE|시도별 건축착공현황||건설 ECOS(8.4.3. 건축착공현황:[901Y103][M] / 동수[2][동수])|
+|34|CONST_BREAK_STATE|시도별 건축착공현황||KOSIS : 시도별 건축물착공현황 ("UNIT_NM": "동㎡")|
 |35|CONST_UNSOLD_URBAN|미분양주택 현황(서울, 경기)||건설 ECOS(8.4.5. 미분양주택현황:[901Y074][M] / 서울[I410B][호], 경기[I410I][호])|
 |36|CONST_UNSOLD_RURAL|미분양주택 현황(지방)||건설 ECOS(8.4.5. 미분양주택현황:[901Y074][M] / 전국[I410A][호])|
 |37|CONST_HOUSE_PRICE|전국 종합 주택매매가격지수||건설, 통계청 유형별 매매가격지수|
