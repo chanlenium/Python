@@ -101,7 +101,7 @@ for to_merge in df_list[1:]:
     IT_EFAS_INDU_SPECIAL_DB = lib.pd.merge(left = IT_EFAS_INDU_SPECIAL_DB, right = to_merge, left_index = True, right_index = True, how = "outer")
 
 today = lib.date.today()
-IT_EFAS_INDU_SPECIAL_DB.to_excel(f'C:/Users/dcoh/Desktop/EFAS/SPECIAL_DB/IT_EFAS_INDU_SPECIAL_DB.xlsx')
+IT_EFAS_INDU_SPECIAL_DB.to_excel(f'../SPECIAL_DB/IT_EFAS_INDU_SPECIAL_DB.xlsx')
 print(lib.tabulate(IT_EFAS_INDU_SPECIAL_DB, headers='keys', tablefmt='psql'))
 
-lib.appendDataFrame.appendDf("IT_EFAS_INDU_SPECIAL_DB")
+lib.appendDataFrame.appendDf("IT_EFAS_INDU_SPECIAL_DB", today)
