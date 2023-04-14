@@ -100,8 +100,9 @@ for to_merge in df_list[1:]:
     # result of merge replaces first or previously merged data frame w/ all previous fields
     IT_EFAS_INDU_SPECIAL_DB = lib.pd.merge(left = IT_EFAS_INDU_SPECIAL_DB, right = to_merge, left_index = True, right_index = True, how = "outer")
 
-today = lib.date.today()
-IT_EFAS_INDU_SPECIAL_DB.to_excel(f'../SPECIAL_DB/IT_EFAS_INDU_SPECIAL_DB.xlsx')
+IT_EFAS_INDU_SPECIAL_DB.to_excel('../IT_EFAS_INDU_SPECIAL_DB/SPECIAL_DB/IT_EFAS_INDU_SPECIAL_DB.xlsx')
 print(lib.tabulate(IT_EFAS_INDU_SPECIAL_DB, headers='keys', tablefmt='psql'))
 
+today = lib.date.today()
 lib.appendDataFrame.appendDf("IT_EFAS_INDU_SPECIAL_DB", today)
+

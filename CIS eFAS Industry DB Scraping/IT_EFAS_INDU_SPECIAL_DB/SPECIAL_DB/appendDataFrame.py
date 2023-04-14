@@ -5,8 +5,8 @@ def appendDf(fileName, today):
     ## 순서 : 수기 입력한 엑셀파일을 업로드 -> 파일을 읽어들임(read_excel) -> 합치기 -> 엑셀파일 반출(to_excel)
 
     # BLANK_IT_EFAS_INDU_SPECIAL_DB와 IT_EFAS_INDU_SPECIAL_DB을 읽음
-    BLANK_IT_EFAS_INDU_SPECIAL_DB = lib.pd.read_excel(f'../SPECIAL_DB/BLANK_IT_EFAS_INDU_SPECIAL_DB.xlsx')
-    IT_EFAS_INDU_SPECIAL_DB = lib.pd.read_excel(f'../SPECIAL_DB/{fileName}.xlsx')
+    BLANK_IT_EFAS_INDU_SPECIAL_DB = lib.pd.read_excel(f'../IT_EFAS_INDU_SPECIAL_DB/SPECIAL_DB/BLANK_IT_EFAS_INDU_SPECIAL_DB.xlsx')
+    IT_EFAS_INDU_SPECIAL_DB = lib.pd.read_excel(f'../IT_EFAS_INDU_SPECIAL_DB/SPECIAL_DB/{fileName}.xlsx')
     IT_EFAS_INDU_SPECIAL_DB.rename(columns={ IT_EFAS_INDU_SPECIAL_DB.columns[0]: "STD_YM" }, inplace = True)
 
     # BLANK_IT_EFAS_INDU_SPECIAL_DB와 IT_EFAS_INDU_SPECIAL_DB의 길이를 맞춤
@@ -20,6 +20,6 @@ def appendDf(fileName, today):
     print(lib.tabulate(IT_EFAS_INDU_SPECIAL_DB, headers='keys', tablefmt='psql'))
 
     # 파일 반출
-    IT_EFAS_INDU_SPECIAL_DB.to_excel(f'../{today}_final_IT_EFAS_INDU_SPECIAL_DB.xlsx')
+    IT_EFAS_INDU_SPECIAL_DB.to_excel(f'../IT_EFAS_INDU_SPECIAL_DB/SPECIAL_DB/{today}_final_IT_EFAS_INDU_SPECIAL_DB.xlsx')
 
     return None
