@@ -166,4 +166,5 @@ def makeExportImportDB(startYYYY, endYYYY, currentMM):
     dfEfasExportImort = dfEfasExportImort.sort_values(['STD_YM', 'EFAS_CD'], ascending = [True, True])
     dfEfasExportImort = dfEfasExportImort[dfEfasExportImort.EXPORT_MDOLLAR.notnull() & dfEfasExportImort.IMPORT_MDOLLAR.notnull()]
     print(lib.tabulate(dfEfasExportImort, headers='keys', tablefmt='psql'))
-    dfEfasExportImort.to_excel(f'C:/Users/dcoh/Desktop/EFAS/COMMON_DB/additionalExportImport.xlsx')
+    dfEfasExportImort.to_excel(f'../COMMON_DB/additionalExportImport.xlsx')
+    # dfEfasExportImort.to_excel(f'C:/Users/dcoh/Desktop/EFAS/COMMON_DB/additionalExportImport.xlsx')

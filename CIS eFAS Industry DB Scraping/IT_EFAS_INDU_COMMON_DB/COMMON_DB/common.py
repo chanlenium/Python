@@ -213,5 +213,6 @@ def makeCommonDB(fromYYYY, fromMM):
     IT_EFAS_INDU_COMMON_DB = IT_EFAS_INDU_COMMON_DB.sort_values(['STD_YM', 'EFAS_CD'], ascending = [True, True])
     IT_EFAS_INDU_COMMON_DB['EFAS_CD'] = IT_EFAS_INDU_COMMON_DB['EFAS_CD'].astype(str)
 
-    IT_EFAS_INDU_COMMON_DB.to_excel(f'C:/Users/dcoh/Desktop/EFAS/COMMON_DB/additionalCommon.xlsx')
+    #IT_EFAS_INDU_COMMON_DB.to_excel(f'C:/Users/dcoh/Desktop/EFAS/COMMON_DB/additionalCommon.xlsx')
+    IT_EFAS_INDU_COMMON_DB.to_excel('../COMMON_DB/additionalCommon.xlsx')
     print(lib.tabulate(IT_EFAS_INDU_COMMON_DB, headers='keys', tablefmt='psql'))
