@@ -9,7 +9,7 @@ https://curlconverter.com/
 # 알고리즘
 1. CORP_BIZ_DATA 테이블에서 사업자번호(BRNO) 컬럼값을 중복제거하여 추출하여 API를 호출할 준비
 2. 사업자번호로 구성된 파일을 읽어서 국세청_사업자등록정보 진위확인 및 상태조회 서비스 API를 호출
-![poster](../img/사업자번호.jpg)
+![poster](/img/사업자번호.jpg)
 4. 결과값을 받아옴
 결과값 : b_stt_cd (1:정상, 2:휴업, 3:폐업)
 
