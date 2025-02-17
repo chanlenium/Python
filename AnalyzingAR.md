@@ -20,39 +20,41 @@
 파이썬에서는 `optbinning`이라는 라이브러리를 활용하면 Optimal Binning을 쉽게 수행할 수 있음.
 
 Optimal Binning을 활용하여 설명변수의 구간을 최적화하여 목표변수 변별력을 최대화하는 방법
-```
+```python
 import numpy as np
 import pandas as pd
 from optbinning import OptimalBinning
 from sklearn.metrics import roc_auc_score
 
-1️⃣ 데이터 생성
-np.random.seed(42)
-x = np.random.randn(1000)  # 설명변수 (연속형 변수)
+# 1️⃣ 데이터 생성
+np.random.seed(42)         # 난수 생성의 일관성을 유지하기 위한 설정
+x = np.random.randn(1000)  # 설명변수 (연속형 변수, 정규분)
 y = (x > 0).astype(int)    # 목표변수 (이진 분류)
 
-2️⃣ Optimal Binning 적용
+# 2️⃣ Optimal Binning 적용
 optb = OptimalBinning(
-    name="Feature",
-    dtype="numerical",
-    solver="cp",
-    monotonic_trend="auto",
-    min_n_bins=3,
-    max_n_bins=6,
-    min_bin_size=0.05,
-    prebinning_method="cart"
+    name="Feature",            # 변수를 나타내는 이름 (필수 입력)
+    dtype="numerical",         # 데이터 유형: `numerical`(연속형 변수) 또는 `categorical`(범주형 변수)
+    solver="cp",               # 최적화 방법: "cp" (Convex Programming, 기본값), "mip" (Mixed-Integer Programming)
+    monotonic_trend="auto",    # 목표 변수와의 관계를 단조 증가("ascending"), 단조 감소("descending"), 자동("auto")로 설정 가능
+    min_n_bins=3,              # 최소 구간(bin) 개수
+    max_n_bins=6,              # 최대 구간(bin) 개수
+    min_bin_size=0.05,         # 각 구간의 최소 데이터 비율 (예: 0.05 → 전체 데이터의 5%)
+    prebinning_method="cart"   # 초기 binning 방법: "cart" (의사결정나무 기반), "quantile" (분위수 기반)
 )
 
-optb.fit(x, y)
+optb.fit(x, y)                 # 모델학습
 
-3️⃣ 최적화된 구간(bin) 정보 출력
+# 3️⃣ 최적화된 구간(bin) 정보 출력
 binning_table = optb.binning_table.build()
 print(binning_table)
 
-4️⃣ 변환된 WOE 값 적용하여 새로운 특성 생성
+# 4️⃣ 변환된 WOE 값 적용하여 새로운 특성 생성(구간별 WOE 값을 적용하여 새로운 특성 생성)
+# 목표변수와 설명변수의 관계를 최적화하여 변별력을 최대화하는 구간을 찾음
+# Weight of Evidence (WOE) Binning: 신용 리스크 분석에서 많이 사용
 x_transformed = optb.transform(x, metric="woe")
 
-5️⃣ 최적화된 변수의 변별력 확인 (AUC 계산)
+# 5️⃣ 최적화된 변수의 변별력 확인 (AUC 계산)
 auc_score = roc_auc_score(y, x_transformed)
 ar_score = 2 * auc_score - 1  # Accuracy Ratio 계산
 
